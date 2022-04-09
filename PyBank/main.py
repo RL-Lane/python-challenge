@@ -32,19 +32,19 @@ for i in range(1,len(profit_list)):
 with open("analysis/pybank.txt","w") as txt_file:
         
     print("Financial Analysis")
-    txt_file.write("Financial Analysis\n")
-
     print("----------------------------")
-    txt_file.write("----------------------------\n")
-
     print(f"Total Months: {len(months_list)}")
-    txt_file.write(f"Total Months: {len(months_list)}\n")
-
     print(f"Total: ${sum(profit_list):,}")
+
+    txt_file.write("Financial Analysis\n")
+    txt_file.write("----------------------------\n")
+    txt_file.write(f"Total Months: {len(months_list)}\n")
     txt_file.write(f"Total: ${sum(profit_list):,}\n")
 
-    print(f"Average Change: ${round(statistics.mean(profit_change_list),2):,}")
-    txt_file.write(f"Average Change: ${round(statistics.mean(profit_change_list),2):,}\n")
+
+    # Calculate and print average change
+    print(f"Average Change: ${round(    statistics.mean(profit_change_list),2    ):,}")
+    txt_file.write(f"Average Change: ${    round(statistics.mean(profit_change_list),2    ):,}\n")
 
     # find max profit change, return index location of said value
     index = profit_change_list.index(    max(profit_change_list)    )
@@ -55,6 +55,4 @@ with open("analysis/pybank.txt","w") as txt_file:
     index = profit_change_list.index(    min(profit_change_list)    )
     print(f"Greatest Decrease in Profits: {months_list[index + 1]} $({profit_change_list[index]:,})")
     txt_file.write(f"Greatest Decrease in Profits: {months_list[index + 1]} $({profit_change_list[index]:,})\n")
-
-
 
